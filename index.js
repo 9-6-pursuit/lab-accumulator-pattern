@@ -4,14 +4,24 @@
  * @returns {boolean} Returns `true` if all values in the array are numbers. Otherwise, return `false`.
  */
 function isValid(rolls) {
-  let result = true
+  result = true
   for (const roll of rolls) {
-    if (Number.isFinite(roll)){
-      result = true
-    }else{
+    if (typeof roll !== "number"){
       result = false
+    }else{
+      result = true
     }
-  }
+    return result
+    }
+  
+  // let result = true
+  // for (const roll of rolls) {
+  //   if (Number.isFinite(roll)){
+  //     result = true
+  //   }else{
+  //     result = false
+  //   }
+  // }
   return result
 }
 
@@ -54,18 +64,23 @@ function filterOutLowValues(rolls, lowest) {
  */
 function getRollCounts(rolls) {
   let object = {}
-  let count = 0
-  let firstRoll = rolls[0]
-  for (let i = 0; i < rolls.length; i++) {
-    const element = rolls[i];
-    if (element === element)
-    count +=
-    object[element] = count
-  }
-  // for (const roll of rolls) {
-  //   count =
-  //   object[roll]=roll
-  // }
+
+  for (const roll of rolls) {
+    if (object[roll]){
+      object[roll] +=1
+      }else {
+      object[roll] = 1
+      }
+      //}
+      // let count = 0
+      // let firstRoll = rolls[0]
+      // for (let i = 0; i < rolls.length; i++) {
+      //   const element = rolls[i];
+      //   if (element === element)
+      //   count +=
+      //   object[element] = count
+      //}
+    }
   return object
 }
 
